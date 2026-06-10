@@ -1,0 +1,44 @@
+{
+  "profile": {
+    "name": "Murodjon Mirfayzullaev",
+    "initials": "MM",
+    "email": "mmurodjon20040305@gmail.com",
+    "phone": "+998 90 328 10 28",
+    "photo": "assets/img/profile-placeholder.svg",
+    "timezone": "Asia/Tashkent"
+  },
+  "cv": {
+    "en": {
+      "file": "CV%20files/ENG-CV-Murodjon-04.2026.pdf",
+      "downloadName": "Murodjon-Mirfayzullaev-CV-EN.pdf"
+    },
+    "ru": {
+      "file": "CV%20files/RUS-CV-Murodjon-04.2026.pdf",
+      "downloadName": "Murodjon-Mirfayzullaev-CV-RU.pdf"
+    },
+    "uz": {
+      "file": "CV%20files/UZB-CV-Murodjon-04.2026.pdf",
+      "downloadName": "Murodjon-Mirfayzullaev-CV-UZ.pdf"
+    }
+  },
+  "social": [
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "handle": "Murodjon Mirfayzullaev",
+      "url": "https://www.linkedin.com/"
+    },
+    {
+      "id": "telegram",
+      "label": "Telegram",
+      "handle": "@mirfayzullayev_2004",
+      "url": "https://t.me/mirfayzullayev_2004"
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "handle": "mmurodjon20040305@gmail.com",
+      "url": "mailto:mmurodjon20040305@gmail.com"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "en": {
+    "meta.langName": "English",
+    "site.title": "Murodjon Mirfayzullaev",
+
+    "nav.home": "Home",
+    "nav.projects": "Projects",
+    "nav.experience": "Experience",
+    "nav.contact": "Contact",
+    "nav.links": "Links",
+    "nav.blog": "Blog",
+    "nav.menu": "Menu",
+    "nav.language": "Change language",
+    "nav.toggleSidebar": "Collapse / expand sidebar",
+
+    "time.label": "My time",
+    "time.place": "Uzbekistan",
+
+    "cv.download": "Download CV",
+    "cv.sheetTitle": "Download CV",
+    "cv.sheetHint": "Choose a language",
+    "cv.confirm": "Download",
+
+    "home.headline": "Graphic Designer · UX / UI",
+    "home.bio": "21-year-old graphic and UX/UI designer from Uzbekistan. Currently Brand Identity & Product Designer at Karmon AI, where I build brand systems and product interfaces — from research and wireframes to polished UI.",
+    "home.cta.work": "View work",
+    "home.cta.contact": "Get in touch",
+
+    "projects.title": "Projects",
+    "experience.title": "Job Experience",
+    "contact.title": "Contact me",
+    "links.title": "Links",
+    "blog.title": "Blog",
+
+    "common.comingSoon": "Coming soon",
+
+    "footer.rights": "All rights reserved.",
+    "footer.built": "Designed & built by Murodjon Mirfayzullaev."
+  },
+  "ru": {
+    "meta.langName": "Русский",
+    "site.title": "Муроджон Мирфайзуллаев",
+
+    "nav.home": "Главная",
+    "nav.projects": "Проекты",
+    "nav.experience": "Опыт работы",
+    "nav.contact": "Контакты",
+    "nav.links": "Ссылки",
+    "nav.blog": "Блог",
+    "nav.menu": "Меню",
+    "nav.language": "Сменить язык",
+    "nav.toggleSidebar": "Свернуть / развернуть панель",
+
+    "time.label": "Моё время",
+    "time.place": "Узбекистан",
+
+    "cv.download": "Скачать CV",
+    "cv.sheetTitle": "Скачать резюме",
+    "cv.sheetHint": "Выберите язык",
+    "cv.confirm": "Скачать",
+
+    "home.headline": "Графический дизайнер · UX / UI",
+    "home.bio": "21-летний графический и UX/UI дизайнер из Узбекистана. В настоящее время — дизайнер фирменного стиля и продукта в Karmon AI: создаю бренд-системы и продуктовые интерфейсы — от исследований и каркасов до готового интерфейса.",
+    "home.cta.work": "Смотреть работы",
+    "home.cta.contact": "Связаться",
+
+    "projects.title": "Проекты",
+    "experience.title": "Опыт работы",
+    "contact.title": "Контакты",
+    "links.title": "Ссылки",
+    "blog.title": "Блог",
+
+    "common.comingSoon": "Скоро",
+
+    "footer.rights": "Все права защищены.",
+    "footer.built": "Дизайн и разработка — Муроджон Мирфайзуллаев."
+  },
+  "uz": {
+    "meta.langName": "O‘zbek",
+    "site.title": "Murodjon Mirfayzullayev",
+
+    "nav.home": "Bosh sahifa",
+    "nav.projects": "Loyihalar",
+    "nav.experience": "Ish tajribasi",
+    "nav.contact": "Aloqa",
+    "nav.links": "Havolalar",
+    "nav.blog": "Blog",
+    "nav.menu": "Menyu",
+    "nav.language": "Tilni o‘zgartirish",
+    "nav.toggleSidebar": "Panelni yig‘ish / yoyish",
+
+    "time.label": "Mening vaqtim",
+    "time.place": "O‘zbekiston",
+
+    "cv.download": "CV yuklab olish",
+    "cv.sheetTitle": "Rezyumeni yuklab olish",
+    "cv.sheetHint": "Tilni tanlang",
+    "cv.confirm": "Yuklab olish",
+
+    "home.headline": "Grafik dizayner · UX / UI",
+    "home.bio": "O‘zbekistonlik 21 yoshli grafik va UX/UI dizayner. Hozirda Karmon AI’da brend identikasi va mahsulot dizayneri sifatida ishlayman: tadqiqot va karkaslardan tortib tayyor interfeysgacha brend tizimlari va mahsulot interfeyslarini yarataman.",
+    "home.cta.work": "Ishlarni ko‘rish",
+    "home.cta.contact": "Bog‘lanish",
+
+    "projects.title": "Loyihalar",
+    "experience.title": "Ish tajribasi",
+    "contact.title": "Bog‘lanish",
+    "links.title": "Havolalar",
+    "blog.title": "Blog",
+
+    "common.comingSoon": "Tez kunda",
+
+    "footer.rights": "Barcha huquqlar himoyalangan.",
+    "footer.built": "Dizayn va ishlab chiqish — Murodjon Mirfayzullayev."
+  }
+}
