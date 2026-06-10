@@ -16,7 +16,6 @@ as-is.
   language) and download the matching PDF from `CV files/`.
 - **Three languages** (English / Russian / Uzbek) via a dropdown language
   switcher; the choice is persisted and re-applied on load.
-- **Ambient glow** that drifts on its own and follows the cursor on desktop.
 - Responsive, with tasteful fade-in / hover animations (all respect
   `prefers-reduced-motion`).
 
@@ -35,7 +34,7 @@ PersonalResumeWebsite/
 ├── CV files/           # downloadable résumé PDFs (EN / RU / UZ)
 ├── assets/
 │   ├── css/styles.css  # all styling + responsive + animations
-│   ├── js/main.js      # sidebar/topbar/footer injection, i18n, clock, sheet, glow
+│   ├── js/main.js      # sidebar/topbar/footer injection, i18n, clock, sheet
 │   └── img/profile-placeholder.svg
 └── data/
     ├── content.json    # language-neutral data: name, contact, photo, CV paths, timezone

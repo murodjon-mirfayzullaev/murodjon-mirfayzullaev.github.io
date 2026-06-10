@@ -6,7 +6,6 @@
    - Collapsible sidebar (persisted) with icon-only rail
    - Off-canvas drawer on mobile (hamburger left, download right)
    - Download-CV bottom sheet with language choice
-   - Ambient glow that drifts and follows the cursor on desktop
    ========================================================================= */
 
 const LANGS = ["en", "ru", "uz"];
@@ -29,13 +28,14 @@ const I = {
   blog: '<path d="M5 3h9l5 5v13H5z"/><path d="M14 3v5h5"/><path d="M8 13h8M8 17h8"/>',
 };
 
-const svg = (paths) =>
-  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+const svg = (paths, cls = "") =>
+  `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
 
 const ICON_GLOBE = svg(
-  '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/>'
+  '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/>',
+  "lang__icon"
 );
-const ICON_CHEVRON = svg('<path d="m6 9 6 6 6-6"/>');
+const ICON_CHEVRON = svg('<path d="m6 9 6 6 6-6"/>', "lang__chev");
 const ICON_COLLAPSE = svg('<path d="m11 7-5 5 5 5M18 7l-5 5 5 5"/>');
 const ICON_DOWNLOAD = svg('<path d="M12 3v12"/><path d="m7 11 5 4 5-4"/><path d="M5 21h14"/>');
 
@@ -134,10 +134,7 @@ function buildSidebar() {
 
   el.innerHTML = `
     <div class="sidebar__top">
-      <a class="brand" href="index.html">
-        <span class="brand__mark" aria-hidden="true">${CONTENT.profile.initials || "•"}</span>
-        <span class="brand__full" data-i18n="site.title">${t("site.title")}</span>
-      </a>
+      <span class="brand" data-i18n="site.title">${t("site.title")}</span>
       <button class="sidebar__collapse" type="button"
               data-i18n-attr="aria-label:nav.toggleSidebar" title="${t("nav.toggleSidebar")}">
         ${ICON_COLLAPSE}
@@ -376,53 +373,6 @@ function startClock() {
   setInterval(tick, 1000);
 }
 
-/* ---------- ambient glow ---------- */
-
-function setupGlow() {
-  const glow = document.getElementById("glow");
-  if (!glow) return;
-
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  glow.classList.add("glow--auto"); // infinite drift by default
-  if (!matchMedia("(pointer: fine)").matches) return; // touch: drift only
-
-  let tx = innerWidth / 2,
-    ty = innerHeight / 2,
-    cx = tx,
-    cy = ty,
-    following = false,
-    raf = 0;
-
-  const tick = () => {
-    cx += (tx - cx) * 0.09;
-    cy += (ty - cy) * 0.09;
-    glow.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
-    raf = requestAnimationFrame(tick);
-  };
-  const start = () => {
-    if (following) return;
-    following = true;
-    glow.classList.remove("glow--auto");
-    tick();
-  };
-  const stop = () => {
-    if (!following) return;
-    following = false;
-    cancelAnimationFrame(raf);
-    glow.style.transform = "";
-    glow.classList.add("glow--auto");
-  };
-
-  window.addEventListener("pointermove", (e) => {
-    if (e.pointerType === "touch") return;
-    tx = e.clientX;
-    ty = e.clientY;
-    start();
-  });
-  document.documentElement.addEventListener("mouseleave", stop);
-}
-
 /* ---------- per-page content hooks ---------- */
 
 function renderContent() {
@@ -466,7 +416,6 @@ async function init() {
   wireLangSwitcher();
   wireSheet();
   startClock();
-  setupGlow();
 
   applyTranslations();
   syncLangSwitcher();
