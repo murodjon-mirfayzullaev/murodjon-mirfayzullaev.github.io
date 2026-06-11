@@ -1,0 +1,34 @@
+{
+  "id": "smart-technology",
+  "current": false,
+  "en": {
+    "role": "Graphic Designer",
+    "company": "Smart Technology Systems LLC",
+    "period": "Jun 2023 — Nov 2023",
+    "duration": "6 mos",
+    "type": "Full time",
+    "summary": "Created visualizations for marketing products. Additionally, compiled reports on completed projects and handled supplementary tasks beyond the scope of graphic design.",
+    "highlights": [],
+    "results": []
+  },
+  "ru": {
+    "role": "Графический дизайнер",
+    "company": "ООО «Smart Technology Systems»",
+    "period": "Июнь 2023 г. — ноябрь 2023 г.",
+    "duration": "6 месяцев",
+    "type": "Полный рабочий день",
+    "summary": "Создавал визуализации для маркетинга продукции. Кроме того, составлял отчёты по завершённым проектам и выполнял дополнительные задачи, выходящие за рамки графического дизайна.",
+    "highlights": [],
+    "results": []
+  },
+  "uz": {
+    "role": "Grafik dizayner",
+    "company": "“Smart Technology Systems” MChJ",
+    "period": "2023-yil iyun — 2023-yil noyabr",
+    "duration": "6 oy",
+    "type": "To‘liq ish kuni",
+    "summary": "Marketing mahsulotlari uchun vizualizatsiyalar yaratdim. Shuningdek, yakunlangan loyihalar bo‘yicha hisobotlar tayyorladim va grafik dizayndan tashqari qo‘shimcha vazifalarni ham bajardim.",
+    "highlights": [],
+    "results": []
+  }
+}

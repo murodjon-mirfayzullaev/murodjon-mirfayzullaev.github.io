@@ -708,6 +708,152 @@ body.nav-open .nav__toggle-bar:nth-child(3) {
 }
 
 /* =========================================================================
+   job experience — segmented cards
+   ========================================================================= */
+
+.xp {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.xp__head {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.xp__head h1 {
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  margin-bottom: 0.5rem;
+}
+
+.xp__subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.xp__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.xp-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 3.5vw, 1.9rem);
+  transition: border-color var(--dur) var(--ease),
+    transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.xp-card:hover {
+  border-color: var(--muted);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.xp-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.xp-role {
+  font-size: 1.15rem;
+  margin: 0 0 0.15rem;
+}
+
+.xp-company {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.xp-badge {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.xp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.xp-chip {
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.xp-summary {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.xp-highlights {
+  margin: 0.9rem 0 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.xp-highlights li::marker {
+  color: var(--muted);
+}
+
+.xp-results {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+}
+
+.xp-results__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.xp-results__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.xp-results__list li {
+  padding: 0.35rem 0.8rem;
+  border-radius: 9px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+/* =========================================================================
    reveal-on-load animation
    ========================================================================= */
 

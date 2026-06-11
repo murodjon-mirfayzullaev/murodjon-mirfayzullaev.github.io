@@ -1,0 +1,49 @@
+{
+  "id": "freelance",
+  "current": true,
+  "en": {
+    "role": "Graphic Designer",
+    "company": "Freelance",
+    "period": "Dec 2023 — Present",
+    "duration": "2 yrs 5 mos",
+    "type": "Freelance",
+    "summary": "Visualizations for marketing products, interiors, and social media aligned with brand identity; UX/UI projects, working directly with clients.",
+    "highlights": [
+      "Wallink, Art Crafts team — designed visuals (illustrations, infographics, etc.) for a vertical wall printer (projects: Millat Umidi, Renessans School, FTTI Institute of Pharmaceutical Education, and others).",
+      "Learning centers (Fitrat Ta'lim, MySchool, etc.) — designed visualizations for marketing products and prepared files for production.",
+      "Optima Best Plast LLC — designed the product catalogue, created visualizations for marketing products, and prepared files for production.",
+      "And others..."
+    ],
+    "results": []
+  },
+  "ru": {
+    "role": "Графический дизайнер",
+    "company": "Фриланс",
+    "period": "Декабрь 2023 г. — настоящее время",
+    "duration": "2 года 5 месяцев",
+    "type": "Фриланс",
+    "summary": "Визуализации для маркетинга продукции, интерьеров и социальных сетей в соответствии с фирменным стилем; проекты UX/UI и работа напрямую с клиентами.",
+    "highlights": [
+      "Команда Wallink, Art Crafts — разработка визуализаций (иллюстраций, инфографики и т. д.) для вертикального настенного принтера (проекты: Millat Umidi, школа Renessans, Институт фармацевтического образования FTTI и другие).",
+      "Учебные центры (Fitrat Ta'lim, MySchool и др.) — разработка визуализаций для маркетинга продукции и подготовка файлов для производства.",
+      "Optima Best Plast LLC — разработка каталога продукции, создание визуализаций для маркетинга и подготовка файлов для производства.",
+      "И другие..."
+    ],
+    "results": []
+  },
+  "uz": {
+    "role": "Grafik dizayner",
+    "company": "Frilans",
+    "period": "2023-yil dekabr — hozirgacha",
+    "duration": "2 yil 5 oy",
+    "type": "Frilans",
+    "summary": "Marketing mahsulotlari, interyerlar va ijtimoiy tarmoqlar uchun firma uslubiga mos vizualizatsiyalar; UX/UI loyihalar va mijozlar bilan bevosita hamkorlik.",
+    "highlights": [
+      "Wallink, Art Crafts jamoasi — vertikal devor printeri uchun vizualizatsiyalar (illyustratsiyalar, infografikalar va boshqalar) ishlab chiqish (loyihalar: Millat Umidi, Renessans maktabi, FTII va boshqalar).",
+      "O‘quv markazlari (Fitrat Ta'lim, MySchool va boshqalar) — marketing materiallari uchun dizaynlar va ishlab chiqarish fayllarini tayyorlash.",
+      "Optima Best Plast MChJ — mahsulot katalogi yaratish, marketing vizualizatsiyalari va ishlab chiqarish fayllari.",
+      "Va boshqalar..."
+    ],
+    "results": []
+  }
+}

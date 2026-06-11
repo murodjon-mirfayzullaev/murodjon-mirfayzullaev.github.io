@@ -1,0 +1,9 @@
+{
+  "_comment": "Order of this list = order on the page (top to bottom). To add a new job: copy an existing job file (e.g. karmon-ai.json), rename it, edit the content, and add its filename here.",
+  "jobs": [
+    "karmon-ai.json",
+    "freelance.json",
+    "smart-technology.json",
+    "osiyo-ziyo.json"
+  ]
+}

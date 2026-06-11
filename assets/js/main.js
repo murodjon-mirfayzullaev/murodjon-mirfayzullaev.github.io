@@ -83,6 +83,8 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   applyTranslations();
   syncLangSwitcher();
+  // let page-specific scripts (e.g. experience.js) re-render their content
+  document.dispatchEvent(new CustomEvent("langchange", { detail: { lang } }));
 }
 
 function applyTranslations() {

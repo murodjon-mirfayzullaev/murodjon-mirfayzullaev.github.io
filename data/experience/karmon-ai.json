@@ -1,0 +1,58 @@
+{
+  "id": "karmon-ai",
+  "current": true,
+  "en": {
+    "role": "Brand Identity & Product Designer",
+    "company": "Karmon AI LLC",
+    "period": "Jan 2025 — Present",
+    "duration": "1 yr 4 mos",
+    "type": "Full time",
+    "summary": "Brand identity and product design (UX/UI) for an AI startup.",
+    "highlights": [
+      "Brand Identity — created the brand identity and visualizations for marketing products, developed presentations for pitching, and produced SMM visualizations.",
+      "Product Design (UX/UI) — analyzed the market and competitors, created wireframes, designed user flows, and developed user interfaces for mobile and dashboard versions."
+    ],
+    "results": [
+      "Reached 50,000+ registered users",
+      "Secured $50k in investment from local ventures",
+      "Won a $10k grand prize at the SevanStartup Summit",
+      "1st place with a $100k grand prize at the President Tech Award 2025"
+    ]
+  },
+  "ru": {
+    "role": "Дизайнер фирменного стиля и продуктовый дизайнер",
+    "company": "ООО «Karmon AI»",
+    "period": "Январь 2025 г. — настоящее время",
+    "duration": "1 год 4 месяца",
+    "type": "Полный рабочий день",
+    "summary": "Фирменный стиль и продуктовый дизайн (UX/UI) для AI-стартапа.",
+    "highlights": [
+      "Фирменный стиль — разработка фирменного стиля и визуализаций для маркетинга продуктов, подготовка презентаций для питчинга и создание визуализаций SMM.",
+      "Продуктовый дизайн (UX/UI) — анализ рынка и конкурентов, создание каркасов, разработка пользовательских сценариев и интерфейсов для мобильных и панельных версий приложения."
+    ],
+    "results": [
+      "Более 50 000 зарегистрированных пользователей",
+      "Привлечено инвестиций в размере $50 000 от местных венчурных фондов",
+      "Гранд в размере $10 000 на саммите SevanStartup",
+      "1-е место с грандом в размере $100 000 на President Tech Award 2025"
+    ]
+  },
+  "uz": {
+    "role": "Brend va mahsulot dizayneri",
+    "company": "“Karmon AI” MChJ",
+    "period": "2025-yil yanvar — hozirgacha",
+    "duration": "1 yil 4 oy",
+    "type": "To‘liq ish kuni",
+    "summary": "AI startap uchun brend identikasi va mahsulot dizayni (UX/UI).",
+    "highlights": [
+      "Brend dizayn — firma uslubi va marketing materiallari uchun vizualizatsiyalar ishlab chiqish, pitch taqdimotlari tayyorlash, SMM dizaynlar yaratish.",
+      "Mahsulot dizayni (UX/UI) — bozor va raqobatchilarni tahlil qilish, wireframe va foydalanuvchi ssenariylarini yaratish, mobil va veb versiyalar uchun interfeys dizayni."
+    ],
+    "results": [
+      "50 000+ ro‘yxatdan o‘tgan foydalanuvchilar",
+      "$50 000 investitsiya jalb qilingan",
+      "SevanStartup sammitida $10 000 grant",
+      "President Tech Award 2025’da 1-o‘rin va $100 000 grant"
+    ]
+  }
+}

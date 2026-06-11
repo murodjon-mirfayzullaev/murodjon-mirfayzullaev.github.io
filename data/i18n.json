@@ -28,6 +28,9 @@
 
     "projects.title": "Projects",
     "experience.title": "Job Experience",
+    "experience.subtitle": "Where I've worked and what I did there.",
+    "experience.results": "Key results",
+    "experience.current": "Current",
     "contact.title": "Contact me",
     "links.title": "Links",
     "blog.title": "Blog",
@@ -66,6 +69,9 @@
 
     "projects.title": "Проекты",
     "experience.title": "Опыт работы",
+    "experience.subtitle": "Где я работал и чем занимался.",
+    "experience.results": "Ключевые результаты",
+    "experience.current": "Сейчас",
     "contact.title": "Контакты",
     "links.title": "Ссылки",
     "blog.title": "Блог",
@@ -104,6 +110,9 @@
 
     "projects.title": "Loyihalar",
     "experience.title": "Ish tajribasi",
+    "experience.subtitle": "Qayerda ishlaganman va nima qilganman.",
+    "experience.results": "Asosiy natijalar",
+    "experience.current": "Hozirda",
     "contact.title": "Bog‘lanish",
     "links.title": "Havolalar",
     "blog.title": "Blog",

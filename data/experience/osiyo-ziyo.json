@@ -1,0 +1,34 @@
+{
+  "id": "osiyo-ziyo",
+  "current": false,
+  "en": {
+    "role": "Graphic Designer",
+    "company": "Osiyo Ziyo Print LLC",
+    "period": "Dec 2021 — Jan 2022",
+    "duration": "2 mos",
+    "type": "Full time",
+    "summary": "Worked on advertising visualizations and preparing digital designs for various stages of the production process, utilizing laser printers, plotters, and other related equipment.",
+    "highlights": [],
+    "results": []
+  },
+  "ru": {
+    "role": "Графический дизайнер",
+    "company": "ООО «Osiyo Ziyo Print»",
+    "period": "Декабрь 2021 г. — январь 2022 г.",
+    "duration": "2 месяца",
+    "type": "Полный рабочий день",
+    "summary": "Занимался визуализацией рекламных материалов и подготовкой цифровых дизайнов для различных этапов производственного процесса, используя лазерные принтеры, плоттеры и другое соответствующее оборудование.",
+    "highlights": [],
+    "results": []
+  },
+  "uz": {
+    "role": "Grafik dizayner",
+    "company": "“Osiyo Ziyo Print” MChJ",
+    "period": "2021-yil dekabr — 2022-yil yanvar",
+    "duration": "2 oy",
+    "type": "To‘liq ish kuni",
+    "summary": "Reklama materiallarini vizualizatsiya qilish va ishlab chiqarish jarayonining turli bosqichlari uchun raqamli dizaynlar tayyorlash bilan shug‘ullandim. Lazer printerlar, plotterlar va boshqa mos uskunalar bilan ishladim.",
+    "highlights": [],
+    "results": []
+  }
+}

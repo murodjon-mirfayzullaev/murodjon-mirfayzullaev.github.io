@@ -38,8 +38,22 @@ PersonalResumeWebsite/
 │   └── img/profile-placeholder.svg
 └── data/
     ├── content.json    # language-neutral data: name, contact, photo, CV paths, timezone
-    └── i18n.json       # all translatable strings for en / ru / uz
+    ├── i18n.json       # all translatable strings for en / ru / uz
+    └── experience/     # one JSON file per job + index.json (display order)
 ```
+
+### Editing the Job Experience page (no code needed)
+
+Each job lives in its own file in `data/experience/` (e.g. `karmon-ai.json`)
+with `en` / `ru` / `uz` sections. The page renders whatever is listed in
+`data/experience/index.json`, top to bottom.
+
+- **Edit a job** → open its JSON file and change the text.
+- **Add a job** → copy an existing file, rename it, edit the content, then add
+  its filename to the `jobs` list in `index.json`.
+- **Reorder / remove** → just reorder or delete entries in `index.json`.
+- `"current": true` shows the "Current" badge. `highlights` and `results` are
+  optional — leave them as `[]` to hide those blocks.
 
 ### Where content lives (no hardcoded copy)
 
