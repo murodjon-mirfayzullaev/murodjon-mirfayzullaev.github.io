@@ -1,0 +1,12 @@
+{
+  "id": "project-03",
+  "title": "Optima Best Plast Catalogue",
+  "thumbnail": "thumbnail.svg",
+  "views": 542,
+  "media": [
+    {
+      "type": "image",
+      "src": "assets/image-1.jpg"
+    }
+  ]
+}

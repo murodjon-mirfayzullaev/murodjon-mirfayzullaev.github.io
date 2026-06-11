@@ -1,0 +1,11 @@
+{
+  "_comment": "Ordered list of project ids shown in the grid (top-left to bottom-right). To add a project: create projects/<id>/ with a project.json + thumbnail, then add its id to this list.",
+  "projects": [
+    "project-01",
+    "project-02",
+    "project-03",
+    "project-04",
+    "project-05",
+    "project-06"
+  ]
+}

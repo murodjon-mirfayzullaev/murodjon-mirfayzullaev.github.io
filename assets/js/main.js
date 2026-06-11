@@ -51,7 +51,6 @@ const NAV_ITEMS = [
   { key: "nav.projects", href: "projects.html", icon: I.projects },
   { key: "nav.experience", href: "experience.html", icon: I.experience },
   { key: "nav.contact", href: "contact.html", icon: I.contact },
-  { key: "nav.links", href: "links.html", icon: I.links },
   { key: "nav.blog", href: "blog.html", icon: I.blog },
 ];
 
@@ -308,14 +307,17 @@ function wireCollapse() {
   const btn = document.querySelector(".sidebar__collapse");
   if (!btn) return;
   btn.addEventListener("click", () => {
-    const collapsed = document.body.classList.toggle("sidebar-collapsed");
+    // class lives on <html> (set pre-paint by the inline head script)
+    const collapsed = document.documentElement.classList.toggle("sidebar-collapsed");
     localStorage.setItem(COLLAPSE_KEY, collapsed ? "collapsed" : "expanded");
   });
 }
 
 function applyStoredCollapse() {
+  // Normally already applied pre-paint by the inline <head> script; this is a
+  // no-op fallback (kept in sync, won't animate since the class is unchanged).
   if (localStorage.getItem(COLLAPSE_KEY) === "collapsed") {
-    document.body.classList.add("sidebar-collapsed");
+    document.documentElement.classList.add("sidebar-collapsed");
   }
 }
 
@@ -432,6 +434,23 @@ function renderContent() {
   document.querySelectorAll("[data-content='name']").forEach((el) => {
     el.textContent = CONTENT.profile.name;
   });
+
+  // social / links list (Contact page)
+  const social = document.getElementById("social-links");
+  if (social && Array.isArray(CONTENT.social)) {
+    const arrow =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+    social.innerHTML = CONTENT.social
+      .map((s) => {
+        const external = /^https?:/i.test(s.url) ? ' target="_blank" rel="noopener"' : "";
+        return `<a class="link-row" href="${s.url}"${external}>
+            <span class="link-row__label">${s.label}</span>
+            <span class="link-row__handle">${s.handle}</span>
+            ${arrow}
+          </a>`;
+      })
+      .join("");
+  }
 }
 
 /* ---------- reveal-on-load ---------- */

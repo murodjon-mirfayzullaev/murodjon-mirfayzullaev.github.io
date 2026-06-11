@@ -1132,6 +1132,339 @@ body.nav-open .nav__toggle-bar:nth-child(3) {
 }
 
 /* =========================================================================
+   projects page
+   ========================================================================= */
+
+.container--wide {
+  max-width: 1200px;
+}
+
+/* full-bleed within the content column (uses the page gutter, no max-width) */
+.projects {
+  padding: clamp(1.5rem, 4vw, 2.5rem) var(--gutter);
+}
+
+/* ---- banner ---- */
+.pbanner {
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(180px, 26vw, 260px);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.pbanner--image {
+  border: 0;
+  position: relative;
+}
+
+.pbanner--image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.15));
+}
+
+.pbanner__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 60ch;
+}
+
+.pbanner--image .pbanner__inner {
+  color: #fff;
+}
+
+.pbanner__heading {
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.pbanner__sub {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+.pbanner--image .pbanner__sub {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.pbanner__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.pbanner__contact {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.pbanner__contact:hover {
+  color: var(--muted);
+}
+
+.pbanner--image .pbanner__contact {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---- tool-badge marquee ---- */
+.marquee {
+  margin-top: 1.25rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  gap: 0.7rem;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__group {
+  display: flex;
+  gap: 0.7rem;
+  padding-right: 0.7rem; /* keep spacing uniform across the loop seam */
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+/* ---- project grid ---- */
+.pgrid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 1rem;
+}
+
+.pcard {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-2);
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pcard__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur) var(--ease);
+}
+
+.pcard:hover .pcard__thumb {
+  transform: scale(1.04);
+}
+
+.pcard__title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.9rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0) 62%);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.pcard:hover .pcard__title,
+.pcard:focus-visible .pcard__title {
+  opacity: 1;
+}
+
+.pcard__views {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 0.7rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+.pcard__views svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---- project bottom sheet (skeleton) ---- */
+.sheet__panel--project {
+  width: min(680px, 100%);
+}
+
+.sheet__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sheet__heading {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.sheet__close {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.sheet__close:hover {
+  background: var(--surface-2);
+  border-color: var(--muted);
+}
+
+.sheet__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sheet__body {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+}
+
+.sheet__soon {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* =========================================================================
+   contact page — links / social
+   ========================================================================= */
+
+.contact {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.contact__head {
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.contact__head h1 {
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.link-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--surface-2);
+  border-radius: 11px;
+  transition: background-color var(--dur) var(--ease);
+}
+
+.link-row:hover {
+  background: var(--bg);
+}
+
+.link-row__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.link-row__handle {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.link-row svg {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================================
    reveal-on-load animation
    ========================================================================= */
 
@@ -1172,48 +1505,48 @@ body.is-ready [data-reveal][data-reveal-delay="3"] { transition-delay: 0.24s; }
     display: grid;
   }
 
-  body.sidebar-collapsed .sidebar {
+  html.sidebar-collapsed .sidebar {
     width: var(--sidebar-w-collapsed);
   }
 
-  body.sidebar-collapsed .page {
+  html.sidebar-collapsed .page {
     margin-left: var(--sidebar-w-collapsed);
   }
 
-  body.sidebar-collapsed .sidebar__top {
+  html.sidebar-collapsed .sidebar__top {
     justify-content: center;
     padding-inline: 0;
   }
 
-  body.sidebar-collapsed .brand,
-  body.sidebar-collapsed .nav__label,
-  body.sidebar-collapsed .lang__current,
-  body.sidebar-collapsed .lang__chev {
+  html.sidebar-collapsed .brand,
+  html.sidebar-collapsed .nav__label,
+  html.sidebar-collapsed .lang__current,
+  html.sidebar-collapsed .lang__chev {
     display: none;
   }
 
-  body.sidebar-collapsed .sidebar__collapse svg {
+  html.sidebar-collapsed .sidebar__collapse svg {
     transform: rotate(180deg);
   }
 
-  body.sidebar-collapsed .nav__link {
+  html.sidebar-collapsed .nav__link {
     justify-content: center;
     padding-inline: 0;
   }
 
-  body.sidebar-collapsed .lang__btn,
-  body.sidebar-collapsed .theme {
+  html.sidebar-collapsed .lang__btn,
+  html.sidebar-collapsed .theme {
     justify-content: center;
     padding-inline: 0;
   }
 
-  body.sidebar-collapsed .theme__label,
-  body.sidebar-collapsed .theme__track {
+  html.sidebar-collapsed .theme__label,
+  html.sidebar-collapsed .theme__track {
     display: none;
   }
 
   /* popped out beside the rail so the labels stay readable */
-  body.sidebar-collapsed .lang__menu {
+  html.sidebar-collapsed .lang__menu {
     left: calc(100% + 12px);
     right: auto;
     bottom: 0;

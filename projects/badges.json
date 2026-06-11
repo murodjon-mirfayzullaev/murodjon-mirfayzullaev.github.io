@@ -1,0 +1,14 @@
+{
+  "_comment": "Tool badges for the auto-scrolling marquee. Each badge: { id, label, icon, color }. 'icon' is a built-in icon name (vector, image, layers, cube, motion, type, video, brush, camera, palette) OR a path to an .svg/.png/.webp asset. 'color' is the pill's filled background (text/icon render white on top).",
+  "badges": [
+    { "id": "illustrator", "label": "Illustrator", "icon": "vector", "color": "#F0760A" },
+    { "id": "photoshop", "label": "Photoshop", "icon": "image", "color": "#2D8CFF" },
+    { "id": "figma", "label": "Figma", "icon": "layers", "color": "#9A4DFF" },
+    { "id": "blender", "label": "Blender", "icon": "cube", "color": "#E07B1A" },
+    { "id": "aftereffects", "label": "After Effects", "icon": "motion", "color": "#7C5CFF" },
+    { "id": "indesign", "label": "InDesign", "icon": "type", "color": "#D63384" },
+    { "id": "capcut", "label": "CapCut", "icon": "video", "color": "#14B8A6" },
+    { "id": "firefly", "label": "Adobe Firefly", "icon": "brush", "color": "#C0392B" },
+    { "id": "coreldraw", "label": "CorelDRAW", "icon": "palette", "color": "#2E7D32" }
+  ]
+}

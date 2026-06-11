@@ -12,9 +12,12 @@
       rel="stylesheet"
     />
     <script>
-      // apply saved theme before paint (default dark) to avoid a flash
-      try { document.documentElement.dataset.theme = localStorage.getItem("site.theme") || "dark"; }
-      catch (e) { document.documentElement.dataset.theme = "dark"; }
+      // apply saved theme + sidebar state before paint to avoid a flash/glitch
+      try {
+        var d = document.documentElement;
+        d.dataset.theme = localStorage.getItem("site.theme") || "dark";
+        if (localStorage.getItem("site.sidebar") === "collapsed") d.classList.add("sidebar-collapsed");
+      } catch (e) { document.documentElement.dataset.theme = "dark"; }
     </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
@@ -26,8 +29,17 @@
       <header class="topbar" id="site-topbar"></header>
 
       <main class="site-main" id="main">
-        <section class="container page-center">
-          <h1 data-reveal data-i18n="contact.title"></h1>
+        <section class="container contact">
+          <header class="contact__head">
+            <h1 data-reveal data-i18n="contact.title"></h1>
+          </header>
+
+          <section class="widget" data-reveal data-reveal-delay="1">
+            <div class="widget__head">
+              <h2 class="widget__title" data-i18n="contact.linksTitle"></h2>
+            </div>
+            <div class="links" id="social-links"></div>
+          </section>
         </section>
       </main>
 

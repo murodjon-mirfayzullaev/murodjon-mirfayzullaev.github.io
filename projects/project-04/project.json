@@ -1,0 +1,12 @@
+{
+  "id": "project-04",
+  "title": "Fitrat Ta'lim Campaign",
+  "thumbnail": "thumbnail.svg",
+  "views": 1903,
+  "media": [
+    {
+      "type": "image",
+      "src": "assets/image-1.jpg"
+    }
+  ]
+}

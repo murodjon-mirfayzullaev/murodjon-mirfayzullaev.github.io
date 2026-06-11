@@ -23,24 +23,47 @@ as-is.
 
 ```
 PersonalResumeWebsite/
-├── index.html          # Home (name, headline, bio, photo)
-├── projects.html       # Projects   — title + "Coming soon"
-├── experience.html     # Job Experience — centered title only
-├── contact.html        # Contact me     — centered title only
-├── links.html          # Links      — title + "Coming soon"
-├── blog.html           # Blog       — title + "Coming soon"
+├── index.html          # Home (profile + active-jobs widget)
+├── projects.html       # Projects (banner + tool marquee + grid)
+├── experience.html     # Job Experience (timeline)
+├── contact.html        # Contact me (+ Links / social section)
+├── blog.html           # Blog — title + "Coming soon"
 ├── .nojekyll           # tells GitHub Pages to skip Jekyll processing
 ├── README.md
 ├── CV files/           # downloadable résumé PDFs (EN / RU / UZ)
+├── projects/           # project content (see "Editing the Projects page")
+│   ├── registry.json   # ordered list of project ids to display
+│   ├── badges.json     # tool badges for the marquee
+│   ├── banner.json     # banner content
+│   └── project-01/ …   # one folder per project: project.json + thumbnail + assets/
 ├── assets/
 │   ├── css/styles.css  # all styling + responsive + animations
-│   ├── js/main.js      # sidebar/topbar/footer injection, i18n, clock, sheet
-│   └── img/profile-placeholder.svg
+│   ├── js/main.js      # sidebar/topbar/footer injection, i18n, clock, theme, sheet
+│   ├── js/home.js      # home widgets   ├── js/experience.js   └── js/projects.js
+│   └── img/profile.jpg
 └── data/
-    ├── content.json    # language-neutral data: name, contact, photo, CV paths, timezone
+    ├── content.json    # language-neutral data: name, contact, photo, CV paths, social
     ├── i18n.json       # all translatable strings for en / ru / uz
     └── experience/     # one JSON file per job + index.json (display order)
 ```
+
+### Editing the Projects page (no code needed)
+
+Project content lives under `projects/`. The grid renders whatever is listed in
+`projects/registry.json`.
+
+- **Add a project** → create `projects/<id>/` with a `project.json` and a
+  `thumbnail` (jpg/png/webp/svg), then add `"<id>"` to `registry.json`.
+- **Reorder / remove** → edit the `projects` array in `registry.json`.
+- **Tool badges** (the auto-scrolling marquee) → edit `projects/badges.json`:
+  `{ id, label, color }`. Each badge is a minimal pill — `label` text plus a
+  small dot in `color`, on a uniform surface background.
+- **Banner** → `projects/banner.json` exists (localized heading/subheading,
+  optional `image`/`contact`/`cta`) but the banner is currently hidden on the
+  page; it can be re-enabled later.
+- `project.json` holds `title`, `thumbnail`, `views`, and a `media` array
+  (image/video/svg) used by the project detail view (coming later — for now a
+  card click opens an empty "Coming soon" bottom sheet).
 
 ### Editing the Job Experience page (no code needed)
 

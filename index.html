@@ -13,9 +13,12 @@
       rel="stylesheet"
     />
     <script>
-      // apply saved theme before paint (default dark) to avoid a flash
-      try { document.documentElement.dataset.theme = localStorage.getItem("site.theme") || "dark"; }
-      catch (e) { document.documentElement.dataset.theme = "dark"; }
+      // apply saved theme + sidebar state before paint to avoid a flash/glitch
+      try {
+        var d = document.documentElement;
+        d.dataset.theme = localStorage.getItem("site.theme") || "dark";
+        if (localStorage.getItem("site.sidebar") === "collapsed") d.classList.add("sidebar-collapsed");
+      } catch (e) { document.documentElement.dataset.theme = "dark"; }
     </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>

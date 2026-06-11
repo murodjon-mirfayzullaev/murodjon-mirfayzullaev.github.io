@@ -1,0 +1,12 @@
+{
+  "id": "project-05",
+  "title": "Renessans School Visuals",
+  "thumbnail": "thumbnail.svg",
+  "views": 327,
+  "media": [
+    {
+      "type": "image",
+      "src": "assets/image-1.jpg"
+    }
+  ]
+}

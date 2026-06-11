@@ -1,0 +1,12 @@
+{
+  "id": "project-01",
+  "title": "Brand Identity — Karmon AI",
+  "thumbnail": "thumbnail.svg",
+  "views": 1240,
+  "media": [
+    {
+      "type": "image",
+      "src": "assets/image-1.jpg"
+    }
+  ]
+}

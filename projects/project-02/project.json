@@ -1,0 +1,12 @@
+{
+  "id": "project-02",
+  "title": "Wallink Mural Illustrations",
+  "thumbnail": "thumbnail.svg",
+  "views": 868,
+  "media": [
+    {
+      "type": "image",
+      "src": "assets/image-1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "_comment": "Projects banner content. Text fields accept a plain string OR a per-language object {en,ru,uz}. 'image' is an optional background asset path (relative to the site root, e.g. projects/banner.jpg); leave \"\" for a clean gradient banner. 'contact' and 'cta' are optional — remove them to hide.",
+  "image": "",
+  "heading": {
+    "en": "Selected Work",
+    "ru": "Избранные работы",
+    "uz": "Tanlangan ishlar"
+  },
+  "subheading": {
+    "en": "Brand identity, product design, and visual work — a selection of projects.",
+    "ru": "Фирменный стиль, продуктовый дизайн и визуальные работы — подборка проектов.",
+    "uz": "Brend identikasi, mahsulot dizayni va vizual ishlar — loyihalar to‘plami."
+  },
+  "contact": "mmurodjon20040305@gmail.com",
+  "cta": {
+    "label": { "en": "Get in touch", "ru": "Связаться", "uz": "Bog‘lanish" },
+    "href": "contact.html"
+  }
+}
