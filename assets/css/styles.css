@@ -821,11 +821,19 @@ body.nav-open .nav__toggle-bar:nth-child(3) {
 
 .home-xp__item {
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
   padding: 0.85rem 1rem;
   background: var(--surface-2);
   border-radius: 11px;
+}
+
+.home-xp__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
 }
 
 .home-xp__role {
@@ -838,24 +846,44 @@ body.nav-open .nav__toggle-bar:nth-child(3) {
   font-size: 0.85rem;
 }
 
-/* "+N more" pill linking to the full experience page */
-.home-xp__more {
-  align-self: flex-start;
+/* "Active" badge in the item's top-right corner */
+.home-xp__badge {
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.9rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  font-size: 0.82rem;
+  background: var(--bg);
+  font-size: 0.66rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--muted);
-  background: var(--surface-2);
-  transition: color var(--dur) var(--ease),
-    background-color var(--dur) var(--ease);
+  white-space: nowrap;
 }
 
-.home-xp__more:hover {
+/* footer: "+N more" and the CTA share one row, both styled as buttons */
+.home-xp__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.home-xp__more {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 500;
   color: var(--text);
-  background: var(--bg);
+  background: var(--surface-2);
+}
+
+.home-xp__more:empty {
+  display: none;
 }
 
 /* =========================================================================
