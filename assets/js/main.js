@@ -12,6 +12,8 @@ const LANGS = ["en", "ru", "uz"];
 const DEFAULT_LANG = "en";
 const LANG_KEY = "site.lang";
 const COLLAPSE_KEY = "site.sidebar";
+const THEME_KEY = "site.theme";
+const DEFAULT_THEME = "dark";
 const BREAKPOINT = 880; // keep in sync with the CSS drawer breakpoint
 
 /* ---------- icons (inline SVG, inherit currentColor) ---------- */
@@ -38,6 +40,10 @@ const ICON_GLOBE = svg(
 const ICON_CHEVRON = svg('<path d="m6 9 6 6 6-6"/>', "lang__chev");
 const ICON_COLLAPSE = svg('<path d="m11 7-5 5 5 5M18 7l-5 5 5 5"/>');
 const ICON_DOWNLOAD = svg('<path d="M12 3v12"/><path d="m7 11 5 4 5-4"/><path d="M5 21h14"/>');
+const ICON_MOON = svg('<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>');
+const ICON_SUN = svg(
+  '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
+);
 
 // Nav order shared across all pages.
 const NAV_ITEMS = [
@@ -148,6 +154,13 @@ function buildSidebar() {
     </nav>
 
     <div class="sidebar__bottom">
+      <button class="theme" type="button" role="switch" aria-checked="true"
+              data-i18n-attr="aria-label:theme.toggle" title="${t("theme.toggle")}">
+        <span class="theme__icon">${ICON_MOON}</span>
+        <span class="theme__label" data-i18n="theme.dark">${t("theme.dark")}</span>
+        <span class="theme__track" aria-hidden="true"><span class="theme__knob"></span></span>
+      </button>
+
       <div class="lang" id="lang">
         <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false"
                 data-i18n-attr="aria-label:nav.language">
@@ -184,6 +197,7 @@ function buildTopbar() {
       <button class="cv-btn" id="cv-open" type="button" data-i18n-attr="aria-label:cv.download">
         ${ICON_DOWNLOAD}
         <span class="cv-btn__label" data-i18n="cv.download"></span>
+        <span class="cv-btn__short" data-i18n="cv.short"></span>
       </button>
     </div>
   `;
@@ -255,6 +269,38 @@ function wireDrawer() {
   });
   window.addEventListener("resize", () => {
     if (window.innerWidth > BREAKPOINT) close();
+  });
+}
+
+/* ---------- theme (dark mode) ---------- */
+
+function getStoredTheme() {
+  const s = localStorage.getItem(THEME_KEY);
+  return s === "light" || s === "dark" ? s : DEFAULT_THEME;
+}
+
+function applyTheme(theme) {
+  theme = theme === "light" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem(THEME_KEY, theme);
+
+  const btn = document.querySelector(".theme");
+  if (btn) {
+    btn.setAttribute("aria-checked", String(theme === "dark"));
+    const icon = btn.querySelector(".theme__icon");
+    if (icon) icon.innerHTML = theme === "dark" ? ICON_MOON : ICON_SUN;
+  }
+}
+
+function wireTheme() {
+  const btn = document.querySelector(".theme");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    const next =
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "light"
+        : "dark";
+    applyTheme(next);
   });
 }
 
@@ -415,9 +461,11 @@ async function init() {
 
   wireDrawer();
   wireCollapse();
+  wireTheme();
   wireLangSwitcher();
   wireSheet();
   startClock();
+  applyTheme(getStoredTheme());
 
   applyTranslations();
   syncLangSwitcher();

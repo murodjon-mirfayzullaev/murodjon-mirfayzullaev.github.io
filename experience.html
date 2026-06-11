@@ -11,6 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // apply saved theme before paint (default dark) to avoid a flash
+      try { document.documentElement.dataset.theme = localStorage.getItem("site.theme") || "dark"; }
+      catch (e) { document.documentElement.dataset.theme = "dark"; }
+    </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body data-page="experience.html" data-title-key="experience.title">
@@ -25,6 +30,7 @@
           <header class="xp__head">
             <h1 data-reveal data-i18n="experience.title"></h1>
             <p class="xp__subtitle" data-reveal data-reveal-delay="1" data-i18n="experience.subtitle"></p>
+            <p class="xp-updated" id="xp-updated" data-reveal data-reveal-delay="2"></p>
           </header>
           <div class="xp__list" id="xp-list"></div>
         </section>

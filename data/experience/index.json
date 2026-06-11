@@ -1,5 +1,6 @@
 {
-  "_comment": "Order of this list = order on the page (top to bottom). To add a new job: copy an existing job file (e.g. karmon-ai.json), rename it, edit the content, and add its filename here.",
+  "_comment": "Order of this list = order on the page (top to bottom). To add a new job: copy an existing job file (e.g. karmon-ai.json), rename it, edit the content, and add its filename here. 'lastUpdated' is the date shown in the info chip above the section — use YYYY-MM-DD (or YYYY-MM); it is auto-formatted per language.",
+  "lastUpdated": "2026-04-01",
   "jobs": [
     "karmon-ai.json",
     "freelance.json",

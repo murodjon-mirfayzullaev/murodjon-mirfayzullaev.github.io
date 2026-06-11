@@ -12,6 +12,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // apply saved theme before paint (default dark) to avoid a flash
+      try { document.documentElement.dataset.theme = localStorage.getItem("site.theme") || "dark"; }
+      catch (e) { document.documentElement.dataset.theme = "dark"; }
+    </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body data-page="index.html" data-title-key="">
@@ -22,19 +27,37 @@
       <header class="topbar" id="site-topbar"></header>
 
       <main class="site-main" id="main">
-        <section class="container hero">
-          <div class="hero__intro">
-            <p class="hero__headline" data-reveal data-i18n="home.headline"></p>
-            <h1 class="hero__name" data-reveal data-reveal-delay="1" data-content="name"></h1>
-            <p class="hero__bio" data-reveal data-reveal-delay="2" data-i18n="home.bio"></p>
-            <div class="hero__cta" data-reveal data-reveal-delay="3">
-              <a class="btn btn--primary" href="projects.html" data-i18n="home.cta.work"></a>
-              <a class="btn btn--ghost" href="contact.html" data-i18n="home.cta.contact"></a>
+        <section class="container home">
+          <!-- profile widget -->
+          <section class="widget widget--profile" data-reveal>
+            <div class="profile">
+              <div class="profile__photo">
+                <img data-content="photo" alt="" />
+              </div>
+              <div class="profile__intro">
+                <p class="profile__headline" data-i18n="home.headline"></p>
+                <h1 class="profile__name" data-content="name"></h1>
+                <p class="profile__bio" data-i18n="home.bio"></p>
+              </div>
             </div>
-          </div>
-          <div class="hero__photo" data-reveal>
-            <img data-content="photo" alt="" />
-          </div>
+          </section>
+
+          <!-- job experience widget (active roles only) -->
+          <section class="widget" data-reveal data-reveal-delay="1">
+            <div class="widget__head">
+              <h2 class="widget__title" data-i18n="experience.title"></h2>
+            </div>
+            <div class="home-xp" id="home-experience"></div>
+            <div class="widget__foot">
+              <a class="btn btn--secondary" href="experience.html">
+                <span data-i18n="home.seeExperience"></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m9 6 6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </section>
         </section>
       </main>
 
@@ -42,5 +65,6 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/home.js"></script>
   </body>
 </html>

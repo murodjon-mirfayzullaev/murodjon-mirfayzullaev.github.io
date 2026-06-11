@@ -11,6 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // apply saved theme before paint (default dark) to avoid a flash
+      try { document.documentElement.dataset.theme = localStorage.getItem("site.theme") || "dark"; }
+      catch (e) { document.documentElement.dataset.theme = "dark"; }
+    </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body data-page="links.html" data-title-key="links.title">
