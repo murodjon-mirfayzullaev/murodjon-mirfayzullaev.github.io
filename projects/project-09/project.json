@@ -1,0 +1,12 @@
+{
+  "id": "project-09",
+  "title": "MySchool — Marketing Pack",
+  "thumbnail": "thumbnail.svg",
+  "views": 489,
+  "media": [
+    {
+      "type": "image",
+      "src": "assets/image-1.jpg"
+    }
+  ]
+}

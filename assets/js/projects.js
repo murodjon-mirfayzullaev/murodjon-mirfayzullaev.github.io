@@ -15,11 +15,31 @@
 
   // Labels owned by this page (kept in sync with the site's 3 languages).
   const LABELS = {
-    en: { soon: "Coming soon", close: "Close", views: "views" },
-    ru: { soon: "Скоро", close: "Закрыть", views: "просмотры" },
-    uz: { soon: "Tez kunda", close: "Yopish", views: "ko‘rishlar" },
+    en: {
+      soon: "Coming soon",
+      close: "Close",
+      views: "views",
+      notice:
+        "Heads up — the portfolio files are temporarily unavailable while I rebuild the Projects section. It'll be updated soon. Thanks for your patience!",
+    },
+    ru: {
+      soon: "Скоро",
+      close: "Закрыть",
+      views: "просмотры",
+      notice:
+        "Обратите внимание — файлы портфолио временно недоступны, пока я обновляю раздел «Проекты». Скоро всё заработает. Спасибо за терпение!",
+    },
+    uz: {
+      soon: "Tez kunda",
+      close: "Yopish",
+      views: "ko‘rishlar",
+      notice:
+        "Eslatma — men «Loyihalar» bo‘limini yangilayotganim sababli portfolio fayllari vaqtincha mavjud emas. Tez orada yangilanadi. Sabringiz uchun rahmat!",
+    },
   };
 
+  const ICON_INFO =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6h.01"/></svg>';
   const ICON_EYE =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
   const ICON_CLOSE =
@@ -69,6 +89,14 @@
         return { id, base, data };
       })
     );
+  }
+
+  /* ---------- notice ---------- */
+
+  function renderNotice() {
+    const el = document.getElementById("projects-notice");
+    if (!el) return;
+    el.innerHTML = `${ICON_INFO}<span>${esc(labelsNow().notice)}</span>`;
   }
 
   /* ---------- banner ---------- */
@@ -215,6 +243,7 @@
   /* ---------- boot ---------- */
 
   function renderAll() {
+    renderNotice();
     renderBanner();
     renderGrid();
   }
@@ -222,6 +251,7 @@
   async function init() {
     try {
       await loadData();
+      renderNotice();
       renderBanner();
       renderBadges();
       renderGrid();

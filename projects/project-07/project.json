@@ -1,0 +1,12 @@
+{
+  "id": "project-07",
+  "title": "Millat Umidi — Mural Visuals",
+  "thumbnail": "thumbnail.svg",
+  "views": 760,
+  "media": [
+    {
+      "type": "image",
+      "src": "assets/image-1.jpg"
+    }
+  ]
+}

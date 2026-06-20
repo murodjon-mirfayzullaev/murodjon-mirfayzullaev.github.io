@@ -132,7 +132,7 @@
 
         const results = d.results?.length
           ? `<div class="xp-results">
-               <p class="xp-results__label">${esc(labels.results)}</p>
+               <p class="xp-results__label">${esc(labels.results)} (${esc(d.company)})</p>
                <ul class="xp-results__list">${d.results
                  .map((r) => `<li>${esc(r)}</li>`)
                  .join("")}</ul>
@@ -145,7 +145,7 @@
               labels.show
             )}</button>
              <div class="xp-desc">
-               <div class="xp-desc__inner">${metaRow}${summary}${highlights}${results}</div>
+               <div class="xp-desc__inner">${metaRow}${results}${summary}${highlights}</div>
              </div>`
           : "";
 

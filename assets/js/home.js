@@ -1,9 +1,8 @@
 /* =========================================================================
    home.js — Home page widgets
-   Currently renders the "Job Experience" widget: a preview of ONLY the
-   active jobs (current: true) pulled from data/experience/. The full list
-   lives on the Experience page. Add future widgets (projects, links, ...)
-   here following the same pattern.
+   Renders the "Job Experience" widget (a preview of the active jobs from
+   data/experience/) and the "Languages" widget (from content.json). Add
+   future widgets here following the same pattern.
    ========================================================================= */
 
 (() => {
@@ -18,7 +17,34 @@
   // "Active" badge (shown on jobs the user currently holds)
   const ACTIVE = { en: "Active", ru: "Активно", uz: "Faol" };
 
+  // Localized language names + proficiency levels (data lives in content.json).
+  const LANG_NAMES = {
+    uz: { en: "Uzbek", ru: "Узбекский", uz: "O‘zbek tili" },
+    ru: { en: "Russian", ru: "Русский", uz: "Rus tili" },
+    en: { en: "English", ru: "Английский", uz: "Ingliz tili" },
+    ar: { en: "Arabic", ru: "Арабский", uz: "Arab tili" },
+    ko: { en: "Korean", ru: "Корейский", uz: "Koreys tili" },
+    tr: { en: "Turkish", ru: "Турецкий", uz: "Turk tili" },
+  };
+  const LEVELS = {
+    native: { en: "Native", ru: "Родной", uz: "Ona tili" },
+    beginner: { en: "Beginner", ru: "Начальный", uz: "Boshlang‘ich" },
+    elementary: { en: "Elementary", ru: "Элементарный", uz: "Elementar" },
+    intermediate: { en: "Intermediate", ru: "Средний", uz: "O‘rta" },
+    "upper-intermediate": {
+      en: "Upper-Intermediate",
+      ru: "Выше среднего",
+      uz: "O‘rtadan yuqori",
+    },
+    advanced: { en: "Advanced", ru: "Продвинутый", uz: "Yuqori" },
+    proficient: { en: "Proficient", ru: "В совершенстве", uz: "Mukammal" },
+  };
+
+  // Native badge text per language (CEFR has no code above C2).
+  const NATIVE = { en: "Native", ru: "Родной", uz: "Ona tili" };
+
   let jobs = [];
+  let content = null;
 
   const langNow = () =>
     localStorage.getItem("site.lang") ||
@@ -31,13 +57,6 @@
       (c) =>
         ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
     );
-
-  async function loadJobs() {
-    const index = await fetch(LIST_URL).then((r) => r.json());
-    jobs = await Promise.all(
-      index.jobs.map((f) => fetch(BASE + f).then((r) => r.json()))
-    );
-  }
 
   function renderExperience() {
     const root = document.getElementById("home-experience");
@@ -71,14 +90,52 @@
     }
   }
 
+  function renderLanguages() {
+    const root = document.getElementById("home-languages");
+    if (!root || !content || !Array.isArray(content.languages)) return;
+    const lang = langNow();
+
+    root.innerHTML = content.languages
+      .map((L) => {
+        const name =
+          (LANG_NAMES[L.id] && (LANG_NAMES[L.id][lang] || LANG_NAMES[L.id].en)) || L.id;
+        const level =
+          (LEVELS[L.level] && (LEVELS[L.level][lang] || LEVELS[L.level].en)) || L.level;
+        const isNative = !L.cefr || L.cefr === "native";
+        const badge = isNative ? NATIVE[lang] || NATIVE.en : L.cefr;
+        return `
+          <div class="lang-card">
+            <img class="lang-card__flag" src="assets/img/flags/${esc(L.id)}.png" alt="" loading="lazy" />
+            <div class="lang-card__body">
+              <span class="lang-card__name">${esc(name)}</span>
+              <span class="lang-card__level">${esc(level)}</span>
+            </div>
+            <span class="lang-card__badge">${esc(badge)}</span>
+          </div>`;
+      })
+      .join("");
+  }
+
+  function renderAll() {
+    renderExperience();
+    renderLanguages();
+  }
+
   async function init() {
     try {
-      await loadJobs();
-      renderExperience();
+      const [index, c] = await Promise.all([
+        fetch(LIST_URL).then((r) => r.json()),
+        fetch("data/content.json").then((r) => r.json()),
+      ]);
+      content = c;
+      jobs = await Promise.all(
+        index.jobs.map((f) => fetch(BASE + f).then((r) => r.json()))
+      );
+      renderAll();
     } catch (err) {
-      console.error("Failed to load experience for home:", err);
+      console.error("Failed to load home widgets:", err);
     }
-    document.addEventListener("langchange", renderExperience);
+    document.addEventListener("langchange", renderAll);
   }
 
   document.addEventListener("DOMContentLoaded", init);

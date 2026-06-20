@@ -21,6 +21,14 @@
       "downloadName": "Murodjon-Mirfayzullaev-CV-UZ.pdf"
     }
   },
+  "languages": [
+    { "id": "uz", "cefr": "native", "level": "native" },
+    { "id": "ru", "cefr": "C1", "level": "advanced" },
+    { "id": "en", "cefr": "C1", "level": "advanced" },
+    { "id": "ar", "cefr": "B1", "level": "intermediate" },
+    { "id": "ko", "cefr": "A2", "level": "elementary" },
+    { "id": "tr", "cefr": "A1", "level": "beginner" }
+  ],
   "social": [
     {
       "id": "linkedin",
