@@ -1,14 +1,14 @@
 {
-  "_comment": "Tool badges for the auto-scrolling marquee. Each badge: { id, label, icon, color }. 'icon' is a built-in icon name (vector, image, layers, cube, motion, type, video, brush, camera, palette) OR a path to an .svg/.png/.webp asset. 'color' is the pill's filled background (text/icon render white on top).",
+  "_comment": "Tool badges for the auto-scrolling marquee. Each badge: { id, label, icon }. 'icon' is a path to an svg/png shown in a 1:1 tile before the label. Replace files in assets/img/tools/ to change an icon.",
   "badges": [
-    { "id": "illustrator", "label": "Illustrator", "icon": "vector", "color": "#F0760A" },
-    { "id": "photoshop", "label": "Photoshop", "icon": "image", "color": "#2D8CFF" },
-    { "id": "figma", "label": "Figma", "icon": "layers", "color": "#9A4DFF" },
-    { "id": "blender", "label": "Blender", "icon": "cube", "color": "#E07B1A" },
-    { "id": "aftereffects", "label": "After Effects", "icon": "motion", "color": "#7C5CFF" },
-    { "id": "indesign", "label": "InDesign", "icon": "type", "color": "#D63384" },
-    { "id": "capcut", "label": "CapCut", "icon": "video", "color": "#14B8A6" },
-    { "id": "firefly", "label": "Adobe Firefly", "icon": "brush", "color": "#C0392B" },
-    { "id": "coreldraw", "label": "CorelDRAW", "icon": "palette", "color": "#2E7D32" }
+    { "id": "photoshop", "label": "Adobe Photoshop", "icon": "assets/img/tools/photoshop.svg" },
+    { "id": "illustrator", "label": "Adobe Illustrator", "icon": "assets/img/tools/illustrator.svg" },
+    { "id": "figma", "label": "Figma", "icon": "assets/img/tools/figma.svg" },
+    { "id": "blender", "label": "Blender", "icon": "assets/img/tools/blender.svg" },
+    { "id": "animate", "label": "Adobe Animate", "icon": "assets/img/tools/animate.svg" },
+    { "id": "capcut", "label": "CapCut", "icon": "assets/img/tools/capcut.svg" },
+    { "id": "affinity", "label": "Affinity", "icon": "assets/img/tools/affinity.svg" },
+    { "id": "coreldraw", "label": "CorelDRAW", "icon": "assets/img/tools/coreldraw.svg" },
+    { "id": "claude", "label": "Claude", "icon": "assets/img/tools/claude.svg" }
   ]
 }

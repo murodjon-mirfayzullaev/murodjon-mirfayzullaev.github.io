@@ -132,8 +132,10 @@
   /* ---------- tool-badge marquee ---------- */
 
   function badgeHTML(b) {
-    const dot = `<span class="badge__dot" style="background:${esc(b.color || "var(--muted)")}"></span>`;
-    return `<span class="badge">${dot}<span>${esc(b.label)}</span></span>`;
+    const icon = b.icon
+      ? `<span class="badge__icon"><img src="${esc(b.icon)}" alt="" loading="lazy" /></span>`
+      : "";
+    return `<span class="badge">${icon}<span>${esc(b.label)}</span></span>`;
   }
 
   function renderBadges() {
