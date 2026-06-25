@@ -26,6 +26,11 @@
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.45s;
+
+  /* glassmorphism surfaces (light theme) */
+  --glass-bg: rgba(255, 255, 255, 0.58);
+  --glass-border: rgba(20, 22, 28, 0.08);
+  --glass-blur: 12px;
 }
 
 /* Theme is controlled explicitly via [data-theme] (default = dark, set by a
@@ -38,6 +43,10 @@
   --muted: #9aa3af;
   --line: #262b33;
   --accent: #f2f4f7;
+
+  /* glassmorphism surfaces (dark theme) */
+  --glass-bg: rgba(24, 28, 36, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 /* ---------- reset-ish ---------- */
@@ -1726,3 +1735,195 @@ body.is-ready [data-reveal][data-reveal-delay="3"] { transition-delay: 0.24s; }
     margin-inline: auto;
   }
 }
+
+/* =========================================================================
+   god rays — cinematic volumetric lapis light (site-wide, both themes)
+   Animates only transform/opacity → runs on the GPU compositor (60fps, never
+   blocks the main thread). Injected + paused (off-screen / hidden) by main.js.
+   ========================================================================= */
+
+.godrays {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* behind .page content (z-index:1), above the body background */
+  overflow: hidden;
+  pointer-events: none;
+  contain: paint;
+
+  /* lapis palette — light theme (gentle normal overlay, visible animation) */
+  --ray-1: rgba(20, 90, 210, 0.18);
+  --ray-2: rgba(46, 110, 220, 0.14);
+  --ray-glow: rgba(30, 100, 215, 0.2);
+  --ray-glow-2: rgba(36, 66, 168, 0.08);
+  --ray-wash-1: rgba(30, 70, 180, 0.08);
+  --ray-wash-2: rgba(30, 70, 180, 0.02);
+  --ray-blend: normal;
+}
+
+/* lapis palette — dark theme (luminous, adds light via screen) */
+:root[data-theme="dark"] .godrays {
+  --ray-1: rgba(40, 104, 214, 0.55); /* lapis blue */
+  --ray-2: rgba(46, 132, 234, 0.4); /* azure highlight */
+  --ray-glow: rgba(48, 108, 216, 0.6);
+  --ray-glow-2: rgba(36, 66, 168, 0.22); /* deep lapis / indigo */
+  --ray-wash-1: rgba(16, 30, 84, 0.68);
+  --ray-wash-2: rgba(13, 20, 58, 0.18);
+  --ray-blend: screen;
+}
+
+/* top-anchored sentinel — rays pause once it scrolls out of view (godrays JS) */
+.godrays-sentinel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 85vh;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* lapis wash to deepen the palette near the light source */
+.godrays::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--ray-wash-1) 0%,
+    var(--ray-wash-2) 40%,
+    transparent 72%
+  );
+}
+
+/* soft source glow near the top-center */
+.godrays__glow {
+  position: absolute;
+  top: -22vh;
+  left: 50%;
+  width: 120vmax;
+  height: 95vmax;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    var(--ray-glow),
+    var(--ray-glow-2) 42%,
+    transparent 68%
+  );
+  filter: blur(26px);
+  animation: gr-glow 9s ease-in-out infinite alternate;
+}
+
+/* the light beams (two layers for depth) */
+.godrays__beams {
+  position: absolute;
+  top: -8vmax;
+  left: 50%;
+  width: 160vmax;
+  height: 160vmax;
+  margin-left: -80vmax;
+  transform-origin: 50% 0;
+  mix-blend-mode: var(--ray-blend);
+  -webkit-mask-image: radial-gradient(88% 80% at 50% 0, #000 16%, transparent 72%);
+  mask-image: radial-gradient(88% 80% at 50% 0, #000 16%, transparent 72%);
+  will-change: transform, opacity;
+}
+
+.godrays__beams--a {
+  background: repeating-conic-gradient(
+    from 0deg at 50% 0,
+    transparent 0deg 3deg,
+    var(--ray-1) 4deg 6deg,
+    transparent 7deg 13deg
+  );
+  filter: blur(26px);
+  animation: gr-rot-a 17s ease-in-out infinite alternate,
+    gr-fade-a 7.5s ease-in-out infinite alternate;
+}
+
+.godrays__beams--b {
+  background: repeating-conic-gradient(
+    from 9deg at 50% 0,
+    transparent 0deg 5deg,
+    var(--ray-2) 6deg 8deg,
+    transparent 9deg 17deg
+  );
+  filter: blur(44px);
+  animation: gr-rot-b 23s ease-in-out infinite alternate,
+    gr-fade-b 11s ease-in-out infinite alternate;
+}
+
+@keyframes gr-rot-a {
+  from { transform: rotate(-7deg); }
+  to { transform: rotate(7deg); }
+}
+@keyframes gr-rot-b {
+  from { transform: rotate(6deg); }
+  to { transform: rotate(-9deg); }
+}
+@keyframes gr-fade-a {
+  from { opacity: 0.55; }
+  to { opacity: 0.95; }
+}
+@keyframes gr-fade-b {
+  from { opacity: 0.35; }
+  to { opacity: 0.72; }
+}
+@keyframes gr-glow {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* light theme: softer opacity ranges — rotation stays the same, fade is gentler */
+:root:not([data-theme="dark"]) .godrays__beams--a {
+  animation: gr-rot-a 17s ease-in-out infinite alternate,
+    gr-fade-a-lt 7.5s ease-in-out infinite alternate;
+}
+:root:not([data-theme="dark"]) .godrays__beams--b {
+  animation: gr-rot-b 23s ease-in-out infinite alternate,
+    gr-fade-b-lt 11s ease-in-out infinite alternate;
+}
+:root:not([data-theme="dark"]) .godrays__glow {
+  animation: gr-glow-lt 9s ease-in-out infinite alternate;
+}
+@keyframes gr-fade-a-lt {
+  from { opacity: 0.2; }
+  to   { opacity: 0.5; }
+}
+@keyframes gr-fade-b-lt {
+  from { opacity: 0.12; }
+  to   { opacity: 0.38; }
+}
+@keyframes gr-glow-lt {
+  from { opacity: 0.25; }
+  to   { opacity: 0.55; }
+}
+
+/* paused when the hero is off-screen or the tab is hidden (set by godrays.js) */
+.godrays.is-paused .godrays__glow,
+.godrays.is-paused .godrays__beams {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .godrays__glow,
+  .godrays__beams {
+    animation: none;
+  }
+}
+
+/* =========================================================================
+   glassmorphism — frosted surfaces so the lapis light shows through gently
+   ========================================================================= */
+
+.widget,
+.xp-card,
+.pnotice,
+.sidebar,
+.topbar {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* the inner chips/rows stay solid for crisp, readable text */

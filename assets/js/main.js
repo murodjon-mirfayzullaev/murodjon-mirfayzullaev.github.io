@@ -461,6 +461,44 @@ function revealOnLoad() {
 
 /* ---------- boot ---------- */
 
+/* ---------- god rays (injected on every page) ---------- */
+
+function setupGodrays() {
+  if (document.getElementById("godrays")) return;
+
+  const rays = document.createElement("div");
+  rays.className = "godrays";
+  rays.id = "godrays";
+  rays.setAttribute("aria-hidden", "true");
+  rays.innerHTML =
+    '<div class="godrays__glow"></div>' +
+    '<div class="godrays__beams godrays__beams--a"></div>' +
+    '<div class="godrays__beams godrays__beams--b"></div>';
+
+  // top-anchored marker: when it scrolls out of view, pause the animation
+  const sentinel = document.createElement("div");
+  sentinel.className = "godrays-sentinel";
+  sentinel.setAttribute("aria-hidden", "true");
+
+  document.body.prepend(sentinel);
+  document.body.prepend(rays);
+
+  let topVisible = true;
+  const update = () =>
+    rays.classList.toggle("is-paused", document.hidden || !topVisible);
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(
+      (entries) => {
+        topVisible = entries[0].isIntersecting;
+        update();
+      },
+      { threshold: 0 }
+    ).observe(sentinel);
+  }
+  document.addEventListener("visibilitychange", update);
+}
+
 async function init() {
   try {
     await loadData();
@@ -472,6 +510,7 @@ async function init() {
   document.documentElement.lang = currentLang;
   applyStoredCollapse();
 
+  setupGodrays();
   buildSidebar();
   buildTopbar();
   buildFooter();
